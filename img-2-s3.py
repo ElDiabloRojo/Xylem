@@ -4,8 +4,8 @@ import sys, os, glob, time
 from boto.s3.connection import S3Connection
 from boto.s3.key import Key
 
-AWS_ACCESS = "AKIA2PFWF6WZFULYF43C"
-AWS_SECRET = "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"
+AWS_ACCESS = os.environ['AWS_ACCESS']
+AWS_SECRET = os.environ['AWS_SECRET']
 
 conn = S3Connection(AWS_ACCESS,AWS_SECRET)
 bucket = conn.get_bucket('phyto-img')
