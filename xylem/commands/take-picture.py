@@ -2,6 +2,9 @@ import click
 import os
 from picamera import PiCamera
 from time import strftime
+import sys, os, glob, time
+from boto.s3.connection import S3Connection
+from boto.s3.key import Key
 
 
 @click.command()
