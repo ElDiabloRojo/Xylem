@@ -22,7 +22,7 @@ setup(
     install_requires=requires,
     entry_points={
         "console_scripts": [
-            "xylem = cli:cli"
+            "xylem = main:cli"
         ]
     },
     classifiers=[
