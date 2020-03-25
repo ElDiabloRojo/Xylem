@@ -30,7 +30,13 @@ def cli():
     pass
 
 @cli.command()
-@click.option("-d", "--dest", default=PHYTO_IMG_DIR, required=True, help="destination directory for image")
+@click.option(
+        "-d",
+        "--dest",
+        default=PHYTO_IMG_DIR,
+        required=True,
+        help="destination directory for image"
+    )
 def take(dest):
     """saves photo from rPi camera to specified directory."""
     timeString = strftime('%Y%m%d-%H%M%S')
@@ -42,7 +48,13 @@ def take(dest):
     camera.capture(outFile)
 
 @cli.command()
-@click.option("-s", "--source", default=PHYTO_IMG_DIR, required=True, help="source directory for images")
+@click.option(
+        "-s",
+        "--source",
+        default=PHYTO_IMG_DIR,
+        required=True,
+        help="source directory for images"
+    )
 def upload(source):
     """uploads photos from specified source directory to s3."""
     conn = S3Connection(AWS_ACCESS, AWS_SECRET)
@@ -54,4 +66,3 @@ def upload(source):
         print('rnUploading %s to s3 %s' % (f, bucket))
         upload_S3(bucket, source, f)
         removeLocal(source, f)
-
