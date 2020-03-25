@@ -8,10 +8,10 @@ def setup(relay):
     gpio.setup(relay, gpio.OUT)
 
 
-def daytime(relay):
-    gpio.output(relay, gpio.HIGH)
+def nighttime(relay):
+    gpio.output(relay, gpio.LOW)
 
 relay = 13
 setup(relay)
-print('daytime')
-daytime(relay)
+print('nighttime')
+nighttime(relay)

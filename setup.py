@@ -1,17 +1,16 @@
-#!/bin/python3
-
-from setuptools import find_packages, setup
-
-
-with open('README.md', 'r') as f:
-    long_description = f.read()
+from setuptools import setup, find_packages
 
 setup(
-    name="pump",
-    version="0.1.0",
-    author='0sum',
-    description='pumping tool for phyto',
-    long_description=long_description,
-    long_description_content_type='text/markdown',
-    packages=find_packages('src')
+    name="xylem",
+    version='0.1',
+    package_dir={'': 'xylem'},
+    packages=find_packages(where='xylem'),
+    install_requires=[
+        'Click',
+        'boto',
+    ],
+    entry_points='''
+        [console_scripts]
+        xylem=main:cli
+    ''',
 )
